@@ -1,0 +1,46 @@
+extends layout 
+
+block content
+	.reg-container.container
+		//- .streak
+		//- 	.flex-center
+		//- 		ul
+		//- 			li
+		//- 				h2.h2-responsive.wow.fadeIn
+		//- 					i(aria-hidden='true')
+		//- 					|  Thanks for signing up for the beta. Stay tuned for the product launch!
+		//- 					i(aria-hidden='true')
+		.col-md-4
+			.mt-3.card.card-cascade
+				.card-up.default-color-dark
+				.avatar
+				center
+					img.rounded-circle.img-responsive(src='https://mdbootstrap.com/img/Photos/Avatars/img%20%288%29.jpg',width='40%')
+
+				.card-block
+					h4.text-xs-center.card-title
+						strong #{name}
+					h5 Email: #{email}
+					h5.card-title
+						strong Needs help with:
+					each skill in tags
+						button.btn.btn-skill(type='button')
+							|
+							.skill-text= skill
+					h5.card-title
+						strong Can help with:
+						br
+						br
+						button.btn.btn-skill(type='button')
+							|
+							.skill-text paint
+						button.btn.btn-skill(type='button')
+							|
+							.skill-text photography
+						button.btn.btn-skill(type='button')
+							|
+							.skill-text canvas
+
+
+
+

@@ -1,0 +1,131 @@
+/**************
+Global styles
+**************/
+body {
+    font-family: 'GilroyBold', sans-serif;
+    background-color: #1A91FF;
+}
+html,
+body,
+header {
+  height: 100%;
+
+}
+header {
+  background-color: #1A91FF;
+}
+/*************
+Navbar
+*************/
+.navbar {
+  background-color: #1A91FF;
+  box-shadow: 0 0 0 0 ;
+}
+
+.navbar-brand {
+  font-size: 1.5rem;
+}
+/***************
+Index hero
+***************/
+.desc {
+  color: #fff;
+  font-size: 65px; 
+}
+p {
+  color: #fff;
+  font-size: 45px;
+}
+.action {
+  color: #006acd;
+}
+.h3-responsive {
+  color: #fff;
+}
+/***************
+Log In button
+***************/
+.login {
+  background-color: #fff;
+  border-style: solid;
+  color: #1A91FF !important;
+}
+/***************
+Log In button
+***************/
+.logout {
+  border-style: solid;
+  border-color: #fff; 
+}
+/****************
+login card
+***************/
+.card {
+   box-shadow: 0 20px 20px rgba(0,0,0,.08);
+   transition: all .25s cubic-bezier(.02,.01,.47,1);
+}
+.card:hover {
+        box-shadow: 0 30px 30px rgba(0,0,0,.15);
+}
+.login-card  {
+  margin-top: 4.5rem;
+  padding-top: 2rem;}
+.card-title {
+  color: #424242
+}
+.card-text {
+  font-size: 18px;
+}
+.btn-signin, .btn-submit {
+  background-color: #269CFF;
+  border-radius: 6px;
+}
+.btn-signin {
+  width: 100%;
+
+}
+/************
+Registration 
+************/
+.container {
+  padding-right: 0 !important;
+  padding-left: 0 !important;
+}
+.reg-container {
+  background-color: #fafafa;
+  height: 90%;
+}
+.h1-responsive {
+  padding-top: 5rem;
+}
+.reg-form {
+  padding-left: 4rem;
+}
+.dataChip {
+  position: absolute;
+  display: none;
+}
+.btn-skill {
+  background-color: #ff4081;
+  padding: 0.9rem;
+}
+.skill-text {
+  font-size: 0.75rem;
+}
+/*************
+Add Gilroy Font
+*************/
+@font-face {
+    font-family: GilroyLight;
+    src: url(../font/Gilroy-Light.otf);
+}
+@font-face {
+    font-family: GilroyBold;
+    src: url(../font/Gilroy-ExtraBold.otf);
+}
+/*************
+Error message
+*************/
+.err-msg {
+  color: #fff;
+}
