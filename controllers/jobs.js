@@ -3,14 +3,11 @@ var request =  require("request");
 var client = monq('mongodb://localhost:27017/monq_example');
 var queue = client.queue('example');
 
-queue.enqueue('reverse', { url: 'http://rishravi.me/sample/sample' }, function (err, job) {
-    console.log('ENQUEUED:', job.data);
-});
 
 var worker = client.worker(['example']);
 
 worker.register({
-    reverse: function (params, callback) {
+    getHTML: function (params, callback) {
         try {
             request({
 			  uri: params.url,
@@ -24,6 +21,12 @@ worker.register({
     }
 });
 
+function createJob(myURL) {
+		queue.enqueue('getHTML', { url: myURL }, function (err, job) {
+	    console.log('ENQUEUED:', job.data);
+	});
+
+}
 
  
 worker.start();
@@ -44,5 +47,4 @@ worker.on('error', function (err) {
 	worker.stop()
 	 });
 
-
-
+module.exports.createJob = createJob;

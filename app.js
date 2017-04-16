@@ -1,11 +1,36 @@
-var monq = require('monq');
-var request =  require("request");
-var client = monq('mongodb://localhost:27017/monq_example');
 var express = require('express');
 var app = express();
-var queue = client.queue('example');
 var bodyParser = require('body-parser');
+var mongoose = require('mongoose');
+var session = require('express-session');
+var MongoStore = require('connect-mongo')(session);
 
+//mongodb connection
+mongoose.connect("mongodb://admin:hunter91@ds147480.mlab.com:47480/heroku_cdm768b2");
+
+
+var db = mongoose.connection;
+
+//mongo error handler
+db.on('error', console.error.bind(console, 'connection error:'));
+// use sessions for tracking logins
+app.use(session( {
+  secret: 'F@verr !s r@d',
+  resave: true,
+  saveUninitialized: false,
+  store: new MongoStore ({
+  	mongooseConnection: db
+  })
+}))
+
+// make user ID available in all templates 
+app.use(function(req, res, next) {
+		res.locals.currentUser = req.session.userId;
+		next();
+	})
+// parse incoming requests
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
 
 // link static files from dirname to public
 app.use(express.static(__dirname + '/public'));
@@ -14,55 +39,9 @@ app.use(express.static(__dirname + '/public'));
 app.set('view engine', 'pug');
 app.set('views', __dirname + '/views');
 
-
-// parse incoming requests
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
-
-
-queue.enqueue('reverse', { url: 'http://rishravi.me/sample/sample' }, function (err, job) {
-    console.log('ENQUEUED:', job.data);
-});
-
-var worker = client.worker(['example']);
-
-worker.register({
-    reverse: function (params, callback) {
-        try {
-            request({
-			  uri: params.url,
-			}, function(error, response, body) {
-			  callback(null,body );
-			});
-            
-        } catch (err) {
-            callback(err);
-        }
-    }
-});
-
-
- 
-worker.start();
-
-worker.on('dequeued', function (data) { 
-	console.log('DEQUEUED: ');
-	console.log(data);
-	 });
-worker.on('failed', function (data) { 
-	console.log('FAILED: ');
-	console.log(data);});
-worker.on('complete', function (data) { 
-	console.log('COMPLETE: ');
-	console.log(data);});
-worker.on('error', function (err) { 
-	console.log('ERROR: ')
-	console.log(err)
-	worker.stop()
-	 });
-
-
-
+//include routes from route
+var routes = require('./controllers/index');
+app.use('/', routes);
 
 //handle status 404 page not found
 app.use(function(req, res, next) {
@@ -71,6 +50,8 @@ app.use(function(req, res, next) {
 	next(err);
 });
 
+//error handler
+//define last callback
 app.use(function(err, req,res,next) {
 	res.status(err.status || 500);
 	res.render('error', {
