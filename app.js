@@ -6,7 +6,7 @@ var session = require('express-session');
 var MongoStore = require('connect-mongo')(session);
 
 //mongodb connection
-mongoose.connect("mongodb://admin:hunter91@ds147480.mlab.com:47480/heroku_cdm768b2");
+mongoose.connect("mongodb://rishravi:massdrop@ds025802.mlab.com:25802/heroku_6xqhdnbn");
 
 
 var db = mongoose.connection;
@@ -15,7 +15,7 @@ var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 // use sessions for tracking logins
 app.use(session( {
-  secret: 'F@verr !s r@d',
+  secret: 'M@ssdrop',
   resave: true,
   saveUninitialized: false,
   store: new MongoStore ({

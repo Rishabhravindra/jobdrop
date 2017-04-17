@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 var User = require('../models/user');
 var mid = require('../middleware');
-var jobController  = require('../controllers/jobs');
+var jobController  = require('../controllers/jobsController');
 
 router.get('/input', function(req,res,next) {
 	return res.render('input', {title: 'Get URL'});
@@ -13,6 +13,7 @@ router.post('/input', function(req, res, next) {
 	if(req.body.link) {
 		//pass the job to worker to do the job and store it in the database
 		jobController.createJob(req.body.link);
+		return res.render('index', {title: 'Sample'});
 	}
 	else {
 		var err = new Error('Please enter a URL');
