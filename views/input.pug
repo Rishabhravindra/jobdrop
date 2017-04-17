@@ -2,7 +2,7 @@ extends layout
 
 block content
   .reg-container.container
-    h1.h1-responsive.text-xs-center Enter URL
+    h1.h1-responsive.text-xs-center #{link}
     form#registerForm.reg-form.py-1(method='POST' action='/input')
       .form-inline
         .md-form.form-group

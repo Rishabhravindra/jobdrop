@@ -2,32 +2,20 @@ var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
-var session = require('express-session');
-var MongoStore = require('connect-mongo')(session);
 
 //mongodb connection
 mongoose.connect("mongodb://rishravi:massdrop@ds025802.mlab.com:25802/heroku_6xqhdnbn");
-
 
 var db = mongoose.connection;
 
 //mongo error handler
 db.on('error', console.error.bind(console, 'connection error:'));
 // use sessions for tracking logins
-app.use(session( {
-  secret: 'M@ssdrop',
-  resave: true,
-  saveUninitialized: false,
-  store: new MongoStore ({
-  	mongooseConnection: db
-  })
-}))
-
+db.once('open', function() {
+	console.log("db connection success");
+})
 // make user ID available in all templates 
-app.use(function(req, res, next) {
-		res.locals.currentUser = req.session.userId;
-		next();
-	})
+
 // parse incoming requests
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -60,7 +48,8 @@ app.use(function(err, req,res,next) {
 	});
 }); 
 
+var port = process.env.PORT || 5000;
 //listen to port 5000 and send message to console
-app.listen(process.env.PORT || 5000, function() {
-	console.log('Express app started at port')
+app.listen(port, function() {
+	console.log('Express app started at port', port)
 });

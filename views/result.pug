@@ -1,0 +1,12 @@
+extends layout
+
+block content
+ .container
+  .h5.h5-responsive.desc Hello. JobId for #{link} is #{jobID}. Use this record for looking up status and result of the job. 
+  p
+   a.action(href='/login') Login
+   |  or 
+   a.action(href='/register') Sign Up
+   |  to know more.
+
+
