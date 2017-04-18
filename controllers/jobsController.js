@@ -69,6 +69,7 @@ function createJob(myURL) {
         url: myURL
     }, function(err, job) {
         if (err) return console.log(err.message);
+       console.log('ENQUEUED');
        console.log(job.data);
        //return job data after job is completed by worker
        resolve(job.data);       
@@ -79,22 +80,22 @@ function createJob(myURL) {
 
     //event listeners to give status and data updates throughout the job process
     worker.on('dequeued', function(data) {
-        // console.log('DEQUEUED: ');
-        // console.log(data);
+        console.log('DEQUEUED: ');
+        console.log(data);
     });
     worker.on('failed', function(data) {
-        // console.log('FAILED: ');
-        // console.log(data);
+        console.log('FAILED: ');
+        console.log(data);
     });
     worker.on('complete', function(data) {
-        // console.log('COMPLETE: ');
-        // console.log(data);
+        console.log('COMPLETE: ');
+        console.log(data);
 
     });
     worker.on('error', function(err) {
         reject(err);
-        // console.log('ERROR: ')
-        // console.log(err)
+        console.log('ERROR: ')
+        console.log(err)
         worker.stop()
     });
     });
