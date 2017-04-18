@@ -1,0 +1,5 @@
+{
+	"name" : "Jobdrop",
+	"description" : "Simple program to add jobs to queues and store job status in a db.",
+	"repository" : "https://github.com/Rishabhravindra/jobdrop"
+}

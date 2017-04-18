@@ -1,21 +1,21 @@
 {
-  "name": "kueimplementation",
+  "name": "JobDrop",
   "version": "0.0.1",
-  "description": "Simple program to add jobs to queues and stores job status in a db.",
+  "description": "Simple program to add jobs to queues and store job status in a db.",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node app.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Rishabhravindra/kueimplementation.git"
+    "url": "git+https://github.com/Rishabhravindra/jobdrop.git"
   },
   "author": "Rishabh Ravindra",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Rishabhravindra/kueimplementation/issues"
+    "url": "https://github.com/Rishabhravindra/jobdrop/issues"
   },
-  "homepage": "https://github.com/Rishabhravindra/kueimplementation#readme",
+  "homepage": "https://github.com/Rishabhravindra/jobdrop#readme",
   "dependencies": {
     "body-parser": "^1.17.1",
     "express": "^4.15.2",
