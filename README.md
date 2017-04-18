@@ -107,6 +107,7 @@ JobData {
 * [body-parser](https://www.npmjs.com/package/body-parser) - Convert incoming data to JSON
 * [Express](http://expressjs.com/) - routing 
 * [mongoDB](https://www.npmjs.com/package/mongodb) - mongoDB driver for Node.js
+* [mLab](https://mlab.com/) - store jobs collection online
 * [mongoose](http://mongoosejs.com/) - connect to mongoDB
 * [monq](https://github.com/scttnlsn/monq) - create workers to do jobs
 * [pug](https://pugjs.org/api/getting-started.html) - templating engine
