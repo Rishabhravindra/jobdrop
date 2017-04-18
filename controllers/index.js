@@ -1,3 +1,4 @@
+'use strict'
 var express = require('express');
 var router = express.Router();
 var User = require('../models/user');
@@ -9,10 +10,6 @@ router.get('/input', function(req,res,next) {
 	return res.render('input', {title: 'Get URL'});
 });
 
-router.get('/geturl/:link', function(req,res,next) {
-
-	return res.render('input', {title: 'Get URL'});
-});
 
 router.post('/input', function(req, res, next) {
 	if(req.body.link) {
@@ -34,13 +31,13 @@ router.get('/search', function(req,res, next) {
 	return res.render('search');
 })
 router.post('/search', function(req,res,next) {
-	if(req.body.searchID) {
-			jobController.searchJob(req.body.searchID).then(function(data) {
-				return res.send(data);
+	if(req.body.jobID) {
+			jobController.searchJob(req.body.jobID).then(function(data) {
+				return res.json(data[0]);
 			})
 	}
 	else {
-		var err = new Error("Please enter a search stringe");
+		var err = new Error("Please enter a search string");
 		err.status = 400;
 		return next(err);
 	}
