@@ -10,8 +10,9 @@ router.get('/add', function(req,res,next) {
 
 // /POST for add job
 router.post('/add', function(req, res, next) {
-	//if-else statement to handle empty input while adding job
-	if(req.body.link) {
+	//if-else statement to handle empty input and invalid url while adding job
+	if(req.body.link && 
+		!(req.body.dir.search(/^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/ )===-1)) {
 		//call the createJob() function in the jobs controller
 		jobController.createJob(req.body.link)
 			.then(function(data) {
@@ -21,7 +22,7 @@ router.post('/add', function(req, res, next) {
 	}
 	else {
 		//create Error object with status code 400 when empty input is entered
-		var err = new Error('Please enter a URL');
+		var err = new Error('Please enter a valid URL');
 		err.status = 400;
 		return next(err);
 	}
