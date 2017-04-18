@@ -10,7 +10,7 @@ router.get('/input', function(req,res,next) {
 });
 
 router.get('/geturl/:link', function(req,res,next) {
-	
+
 	return res.render('input', {title: 'Get URL'});
 });
 
@@ -30,7 +30,21 @@ router.post('/input', function(req, res, next) {
 		return next(err);
 	}
 });
-
+router.get('/search', function(req,res, next) {
+	return res.render('search');
+})
+router.post('/search', function(req,res,next) {
+	if(req.body.searchID) {
+			jobController.searchJob(req.body.searchID).then(function(data) {
+				return res.send(data);
+			})
+	}
+	else {
+		var err = new Error("Please enter a search stringe");
+		err.status = 400;
+		return next(err);
+	}
+})
 //GET for index
 router.get('/', function(req,res,next) {
 	res.render('index', { title: 'Home'});

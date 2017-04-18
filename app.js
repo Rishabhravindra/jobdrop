@@ -1,19 +1,7 @@
 var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
-var mongoose = require('mongoose');
 
-//mongodb connection
-mongoose.connect("mongodb://rishravi:massdrop@ds025802.mlab.com:25802/heroku_6xqhdnbn");
-
-var db = mongoose.connection;
-
-//mongo error handler
-db.on('error', console.error.bind(console, 'connection error:'));
-// use sessions for tracking logins
-db.once('open', function() {
-	console.log("db connection success");
-})
 // make user ID available in all templates 
 
 // parse incoming requests
