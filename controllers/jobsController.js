@@ -1,14 +1,14 @@
 'use strict'
 var monq = require('monq'),
     request = require("request"),
-    client = monq('mongodb://rishravi:massdrop@ds025802.mlab.com:25802/heroku_6xqhdnbn'),
+    client = monq('mongodb://rishravi:jobdrop@ds061506.mlab.com:61506/heroku_7d3rsxh7'),
     queue = client.queue('getCode'),
     mongoose = require('mongoose'),
     ObjectId = require('mongodb').ObjectId; 
 
 
 //connect to mongo database
-mongoose.connect("mongodb://rishravi:massdrop@ds025802.mlab.com:25802/heroku_6xqhdnbn");
+mongoose.connect("mongodb://rishravi:jobdrop@ds061506.mlab.com:61506/heroku_7d3rsxh7");
 
 var connection = mongoose.connection;
 
