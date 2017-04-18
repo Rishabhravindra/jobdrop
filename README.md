@@ -39,17 +39,17 @@ Below is a sample run for creating a job for the link [http://rishravi.me/sample
 
 Go to [localhost:5000/add](http://localhost:5000/add) or [massdrop.herokuapp.com/add](https://massdrop.herokuapp.com/add) to send job to a worker
 
-![Add job to queue](http://)
+![Add job to queue](https://github.com/Rishabhravindra/jobdrop/blob/master/public/img/addJob.PNG)
 
 You will get a results page with job id for the url entered earlier. This will be used later to lookup job details.
-![Job details](http://)
+![Job details](https://github.com/Rishabhravindra/jobdrop/blob/master/public/img/jobId.PNG)
 
 Fire up the search page by going to [localhost:5000/search](http://localhost:5000/search) or [massdrop.herokuapp.com/search](https://massdrop.herokuapp.com/search). Add the id we got earlier (Eg- ) to the search input bar.
 
-![Search page](http://)
+![Search page](https://github.com/Rishabhravindra/jobdrop/blob/master/public/img/searchjob.PNG)
 
 Get status and results (if job is completed) of the job in JSON format. I recommend using [JSON view for chrome](https://chrome.google.com/webstore/detail/jsonview/chklaanhfefbnpoihckbnefhakgolnmc?hl=en) or pass the JSON in a site like [jsonprettyprint](http://jsonprettyprint.com/) to view results in a more readable format.
-![Search results](http://) 
+![Search results](https://github.com/Rishabhravindra/jobdrop/blob/master/public/img/jobresult.PNG) 
 
 ### Process breakdown
 
@@ -96,14 +96,6 @@ JobData {
   status: 'queued',
   enqueued: 2017-04-18T16:23:00.281Z,
   _id: 58f63d64123ba039189ebf8d }
-```
-
-### And coding style tests
-
-Explain what these tests test and why
-
-```
-Give an example
 ```
 
 ## Built With
