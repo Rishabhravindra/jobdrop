@@ -1,7 +1,8 @@
 'use strict'
 var express = require('express'),
     router = express.Router(),
-	jobController  = require('../controllers/jobsController');
+	jobController  = require('../controllers/jobsController'),
+	mid  = require('../middleware/')
 
 // /GET to add job
 router.get('/add', function(req,res,next) {
@@ -33,7 +34,7 @@ router.get('/search', function(req,res, next) {
 })
 
 // /POST for search
-router.post('/search', function(req,res,next) {
+router.post('/search', mid.isValid, function(req,res,next) {
 	//if-else statement to handle empty input while searching for job
 	if(req.body.jobID) {
 			//call the searchJob() function in the jobs controller
