@@ -1,44 +1,53 @@
 'use strict'
 var express = require('express'),
     router = express.Router(),
-    User = require('../models/user'),
-	mid = require('../middleware'),
 	jobController  = require('../controllers/jobsController');
 
+// /GET to add job
 router.get('/add', function(req,res,next) {
-
 	return res.render('input', {title: 'Get URL'});
 });
 
-
+// /POST for add job
 router.post('/add', function(req, res, next) {
+	//if-else statement to handle empty input while adding job
 	if(req.body.link) {
-		//pass the job to worker to do the job and store it in the database
+		//call the createJob() function in the jobs controller
 		jobController.createJob(req.body.link)
 			.then(function(data) {
+			//render results page which gives user details about the job
 			return res.render('result', {title: "Add job",link:data.params.url, jobID: data._id});
 		})
 		// console.log(getJobInfo);
 		// return res.render('index', {title: "Test"});
 	}
 	else {
+		//create Error object with status code 400 when empty input is entered
 		var err = new Error('Please enter a URL');
 		err.status = 400;
 		return next(err);
 	}
 });
+
+// /GET for search 
 router.get('/search', function(req,res, next) {
 	return res.render('search');
 })
+
+// /POST for search
 router.post('/search', function(req,res,next) {
+	//if-else statement to handle empty input while searching for job
 	if(req.body.jobID) {
+			//call the searchJob() function in the jobs controller
 			jobController.searchJob(req.body.jobID).then(function(data) {
 				// var json_pp = pd.json(data[0]);
 				// return res.render('searchresult', {title: "Search Results", result: json_pp })
+				//return json data based on search id.
 				return res.json(data);
 			})
 	}
 	else {
+		//create Error object with status code 400 when empty input is entered
 		var err = new Error("Please enter a search string");
 		err.status = 400;
 		return next(err);

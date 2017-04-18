@@ -15,7 +15,7 @@ app.set('view engine', 'pug');
 app.set('views', __dirname + '/views');
 
 //include routes from route
-var routes = require('./controllers/index');
+var routes = require('./controllers/routes');
 app.use('/', routes);
 
 //handle status 404 page not found
@@ -36,6 +36,7 @@ app.use(function(err, req,res,next) {
 }); 
 
 var port = process.env.PORT || 5000;
+
 //listen to port 5000 and send message to console
 app.listen(port, function() {
 	console.log('Express app started at port', port)
