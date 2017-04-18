@@ -4,7 +4,7 @@ Create a job queue whose workers fetch data from a URL and store the results in 
 
 ## Getting Started
 
-Online Demo: [massdrop.herokuapp.com](https://massdrop.herokuapp.com) (no installation required))
+Online Demo: [jobdrop.herokuapp.com](https://jobdrop.herokuapp.com) (no installation required))
 Localhost: 'node app' 
 
 ### Prerequisites
@@ -38,7 +38,7 @@ If the succeessful connection messages appear, then you are good to go! Go to [l
 Below is a sample run for creating a job for the link [http://rishravi.me/sample/sample](http://rishravi.me/sample/sample)
 
 
-Go to [localhost:5000/add](http://localhost:5000/add) or [massdrop.herokuapp.com/add](https://massdrop.herokuapp.com/add) to send job to a worker
+Go to [localhost:5000/add](http://localhost:5000/add) or [massdrop.herokuapp.com/add](https://jobdrop.herokuapp.com/add) to send job to a worker
 
 ![Add job to queue](https://github.com/Rishabhravindra/jobdrop/blob/master/public/img/addJob.PNG)
 
@@ -47,7 +47,7 @@ You will get a results page with job id for the url entered earlier. This will b
 ![Job details](https://github.com/Rishabhravindra/jobdrop/blob/master/public/img/jobId.PNG)
 
 
-Fire up the search page by going to [localhost:5000/search](http://localhost:5000/search) or [massdrop.herokuapp.com/search](https://massdrop.herokuapp.com/search). Add the id we got earlier (Eg- 58f63c08123ba039189ebf8b) to the search input bar.
+Fire up the search page by going to [localhost:5000/search](http://localhost:5000/search) or [massdrop.herokuapp.com/search](https://jobdrop.herokuapp.com/search). Add the id we got earlier (Eg- 58f63c08123ba039189ebf8b) to the search input bar.
 
 ![Search page](https://github.com/Rishabhravindra/jobdrop/blob/master/public/img/searchjob.PNG)
 
