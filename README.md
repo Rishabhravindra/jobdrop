@@ -73,31 +73,20 @@ Add additional notes about how to deploy this on a live system
 
 ## Built With
 
-* [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
-* [Maven](https://maven.apache.org/) - Dependency Management
-* [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds
+* [body-parser](https://www.npmjs.com/package/body-parser) - Convert incoming data to JSON
+* [Express](http://expressjs.com/) - routing 
+* [mongoDB](https://www.npmjs.com/package/mongodb) - mongoDB driver for Node.js
+* [mongoose](http://mongoosejs.com/) - connect to mongoDB
+* [monq](https://github.com/scttnlsn/monq) - create workers to do jobs
+* [request](https://www.npmjs.com/package/request) - make HTTP calls and get html code
 
-## Contributing
 
-Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
+## Author
 
-## Versioning
-
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags). 
-
-## Authors
-
-* **Billie Thompson** - *Initial work* - [PurpleBooth](https://github.com/PurpleBooth)
-
-See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+* **Rishabh Ravindra** - [website](http://rishravi.me)
 
 ## Acknowledgments
 
-* Hat tip to anyone who's code was used
-* Inspiration
-* etc
+* Stack Overflow
+* Documentation for various packages used
 

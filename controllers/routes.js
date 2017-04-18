@@ -18,8 +18,6 @@ router.post('/add', function(req, res, next) {
 			//render results page which gives user details about the job
 			return res.render('result', {title: "Add job",link:data.params.url, jobID: data._id});
 		})
-		// console.log(getJobInfo);
-		// return res.render('index', {title: "Test"});
 	}
 	else {
 		//create Error object with status code 400 when empty input is entered
@@ -40,9 +38,7 @@ router.post('/search', function(req,res,next) {
 	if(req.body.jobID) {
 			//call the searchJob() function in the jobs controller
 			jobController.searchJob(req.body.jobID).then(function(data) {
-				// var json_pp = pd.json(data[0]);
-				// return res.render('searchresult', {title: "Search Results", result: json_pp })
-				//return json data based on search id.
+				// return json data based on search id.
 				return res.json(data);
 			})
 	}
