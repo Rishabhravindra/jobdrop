@@ -1,9 +1,9 @@
 'use strict'
-var express = require('express');
-var router = express.Router();
-var User = require('../models/user');
-var mid = require('../middleware');
-var jobController  = require('../controllers/jobsController');
+var express = require('express'),
+    router = express.Router(),
+    User = require('../models/user'),
+	mid = require('../middleware'),
+	jobController  = require('../controllers/jobsController');
 
 router.get('/add', function(req,res,next) {
 
@@ -33,7 +33,9 @@ router.get('/search', function(req,res, next) {
 router.post('/search', function(req,res,next) {
 	if(req.body.jobID) {
 			jobController.searchJob(req.body.jobID).then(function(data) {
-				return res.json(data[0]);
+				// var json_pp = pd.json(data[0]);
+				// return res.render('searchresult', {title: "Search Results", result: json_pp })
+				return res.json(data);
 			})
 	}
 	else {

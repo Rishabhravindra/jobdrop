@@ -1,8 +1,7 @@
-var express = require('express');
-var app = express();
-var bodyParser = require('body-parser');
+var express = require('express'),
+	app = express(),
+	bodyParser = require('body-parser');
 
-// make user ID available in all templates 
 
 // parse incoming requests
 app.use(bodyParser.json());

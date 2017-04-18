@@ -1,13 +1,12 @@
 'use strict'
-var monq = require('monq');
-var request = require("request");
-var client = monq('mongodb://rishravi:massdrop@ds025802.mlab.com:25802/heroku_6xqhdnbn');
-var queue = client.queue('example');
-var Job = require('../models/jobs')
-var mongoose = require('mongoose');
-var ObjectId = require('mongodb').ObjectId; 
+var monq = require('monq'),
+    request = require("request"),
+    client = monq('mongodb://rishravi:massdrop@ds025802.mlab.com:25802/heroku_6xqhdnbn'),
+    queue = client.queue('example'),
+    Job = require('../models/jobs'),
+    mongoose = require('mongoose'),
+    ObjectId = require('mongodb').ObjectId; 
 
-// db.test.find({_id:o_id})
 
 //mongodb connection
 mongoose.connect("mongodb://rishravi:massdrop@ds025802.mlab.com:25802/heroku_6xqhdnbn");
@@ -29,8 +28,8 @@ function searchJob(jobId)
     connection.db.collection("jobs", function(err, collection) {
         var o_id = new ObjectId(jobId);
         collection.find({_id: o_id}).toArray(function(err, data) {
-            resolve(data);
-            return data;
+            console.log( typeof data[0]);
+            resolve(data[0]);
         })
     });  
  })
@@ -61,6 +60,8 @@ function createJob(myURL) {
     queue.enqueue('getHTML', {
         url: myURL
     }, function(err, job) {
+        if (err) return console.log(err.message);
+       console.log(job.data);
        resolve(job.data);       
         //create 
     });
