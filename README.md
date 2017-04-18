@@ -1,6 +1,5 @@
 # Jobdrop - Massdrop Coding challenge
 
-Create a job queue whose workers fetch data from a URL and store the results in a database.  The job queue should expose a REST API for adding jobs and checking their status / results.
 
 ## Getting Started
 
@@ -102,7 +101,7 @@ JobData {
   _id: 58f63d64123ba039189ebf8d }
 ```
 ### Thoughts
-While designing the program, I wanted to use curl for testing GET and POST requests. However, during the program design process, I thought that a visual representaion of a job would be a visual representation of the GET and POST processes. And thus instead of using req.params.link (or something similar), I used req.body.link to get the url to be used by a worker. Changing the whole program to work with curl and use link params/queries is not a big task as it would entail some changes to the response object among other changes.  
+While designing the program, I wanted to use [curl](https://curl.haxx.se/) for testing GET and POST requests. However, during the program design process, I thought that a visual representaion of a job would be a visual representation of the GET and POST processes. And thus instead of using req.params.link (or something similar), I used req.body.link to get the url to be used by a worker. Changing the whole program to work with curl and use link params/queries is not a big task as it would entail some changes to the response object among other changes.  
 
 Also, the whole process is logged on the console. That is one way to look up the history of the job.
 
