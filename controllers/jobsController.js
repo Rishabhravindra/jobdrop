@@ -32,7 +32,14 @@ function searchJob(jobId)
         //find job in connection
         collection.find({_id: o_id}).toArray(function(err, data) {
             //return data after job is complete
-            resolve(data[0]);
+            if (data.length == 0) {
+                resolve({
+                    "search-status" : "No collection found for Job Id" + jobId
+                });
+            }
+            else {
+                resolve(data[0]);
+            }
         })
     });  
  })
