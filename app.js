@@ -36,9 +36,9 @@ app.use(function(err, req,res,next) {
 	});
 }); 
 
-var port = process.env.PORT || 5000;
+
 
 //listen to port 5000 and send message to console
-app.listen(port, function() {
-	console.log('Express app started at port', port)
+app.listen(process.env.PORT || 5000, function() {
+	console.log('Jobdrop app started at port')
 });
