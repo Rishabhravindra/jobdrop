@@ -11,8 +11,7 @@ router.get('/add', function(req,res,next) {
 // /POST for add job
 router.post('/add', function(req, res, next) {
 	//if-else statement to handle empty input and invalid url while adding job
-	if(req.body.link && 
-		!(req.body.dir.search(/^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/ )===-1)) {
+	if(req.body.link) {
 		//call the createJob() function in the jobs controller
 		jobController.createJob(req.body.link)
 			.then(function(data) {
