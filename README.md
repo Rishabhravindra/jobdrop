@@ -25,7 +25,7 @@ Make sure you have installed the necessary packages. The Node.js server can be s
 node app
 ```
 
-And repeat
+If everything was fine, you should see the success messages here.
 
 ```
 Express app started at port 5000
