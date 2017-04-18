@@ -3,10 +3,10 @@ extends layout
 block content
   .reg-container.container
     h1.h1-responsive.text-xs-center Add URL
-    form#registerForm.reg-form.py-1(method='POST' action='/input')
+    form#registerForm.reg-form.py-1(method='POST' action='/add')
       .form-inline
         .md-form.form-group
-          input#name.form-control(type='text', name='link' , value='http://www.rishravi.me/sample/sample')
+          input#name.form-control(type='text', name='link' , value='http://www.rishravi.me')
           |  
           label(for='link') Enter URL
         button.btn.btn-primary.btn-submit.pt-1.waves-effect.waves-light(type='submit') Submit

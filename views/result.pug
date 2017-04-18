@@ -2,11 +2,10 @@ extends layout
 
 block content
  .container
-  .h5.h5-responsive.desc Hello. JobId for #{link} is #{jobID}. Use this record for looking up status and result of the job. 
+  .h5.h5-responsive.desc Hello. Job Id for #{link} is #{jobID}. Use this record for 
   p
-   a.action(href='/login') Login
-   |  or 
-   a.action(href='/register') Sign Up
-   |  to know more.
+   a.action(href='/search') looking up
+   |  job statuses and results. Or if you want,  
+   a.action(href='/add') add another job
 
 

@@ -5,18 +5,18 @@ var User = require('../models/user');
 var mid = require('../middleware');
 var jobController  = require('../controllers/jobsController');
 
-router.get('/input', function(req,res,next) {
+router.get('/add', function(req,res,next) {
 
 	return res.render('input', {title: 'Get URL'});
 });
 
 
-router.post('/input', function(req, res, next) {
+router.post('/add', function(req, res, next) {
 	if(req.body.link) {
 		//pass the job to worker to do the job and store it in the database
 		jobController.createJob(req.body.link)
 			.then(function(data) {
-			return res.render('result', {link:data.params.url, jobID: data._id});
+			return res.render('result', {title: "Add job",link:data.params.url, jobID: data._id});
 		})
 		// console.log(getJobInfo);
 		// return res.render('index', {title: "Test"});

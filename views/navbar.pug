@@ -3,21 +3,13 @@ nav.navbar.navbar-dark.py-1
     i.fa.fa-bars
   .container
     #collapseEx2.collapse.navbar-toggleable-xs
-      a.navbar-brand(href='/') Faverr 
+      a.navbar-brand(href='/') Massdrop Challenge 
       ul.nav.navbar-nav.float-sm-right
         li.nav-item
           a.nav-link(href='/') Home
         li.nav-item
-          a.nav-link(href='https://github.com/Rishabhravindra/faverr', target='_blank') About
+          a.nav-link(href='https://github.com/Rishabhravindra/', target='_blank') GitHub
         li.nav-item
-          a.nav-link Contact
+          a.nav-link(href='/add') Add Job
         li.nav-item
-          a.nav-link(href='/profile') Profile
-        if currentUser
-          li.nav-item
-            a.nav-link.px-2.login(href='logout') Log out
-        else
-          li.nav-item
-            a.nav-link.px-2.mx-1.login(href='register') Sign Up
-          li.nav-item
-            a.nav-link.px-2.logout(href='login') Log In  
+          a.nav-link(href='/search') Search Job Status

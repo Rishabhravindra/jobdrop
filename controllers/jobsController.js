@@ -19,22 +19,15 @@ connection.on('error', console.error.bind(console, 'connection error:'));
 // use sessions for tracking logins
 connection.once('open', function() {
     console.log("db connection success");
-    // connection.db.collection("jobs", function(err, collection) {
-    //     collection.find({_id: o_id}).toArray(function(err, data) {
-    //         console.log( data[0]._id);
-    //         return data[0];
-    //     })
-    // });
 })
 
 
-var jobID = {};
-function searchJob(searchID)
+function searchJob(jobId)
 {       
     return new Promise(function (resolve,reject) {
 
     connection.db.collection("jobs", function(err, collection) {
-        var o_id = new ObjectId(searchID);
+        var o_id = new ObjectId(jobId);
         collection.find({_id: o_id}).toArray(function(err, data) {
             resolve(data);
             return data;
@@ -92,7 +85,6 @@ function createJob(myURL) {
         // console.log(err)
         worker.stop()
     });
-    return jobID;
     });
 }
 

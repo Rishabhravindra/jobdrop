@@ -2,13 +2,13 @@ extends layout
 
 block content
   .reg-container.container
-    h1.h1-responsive.text-xs-center Search Page
+    h1.h1-responsive.text-xs-center Search Job Id
     form#registerForm.reg-form.py-1(method='POST' action='/search')
       .form-inline
         .md-form.form-group
           input#name.form-control(type='text', name='jobID')
           |  
-          label(for='jobID') Enter URL
+          label(for='jobID') Enter Job Id
         button.btn.btn-primary.btn-submit.pt-1.waves-effect.waves-light(type='submit') Search
 
         
