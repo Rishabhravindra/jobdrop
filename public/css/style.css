@@ -39,54 +39,16 @@ p {
 .action {
   color: #006acd;
 }
-.h3-responsive {
-  color: #fff;
+.info {
+  color: #000;
 }
-/***************
-Log In button
-***************/
-.login {
-  background-color: #fff;
-  border-style: solid;
-  color: #1A91FF !important;
-}
-/***************
-Log In button
-***************/
-.logout {
-  border-style: solid;
-  border-color: #fff; 
-}
-/****************
-login card
-***************/
-.card {
-   box-shadow: 0 20px 20px rgba(0,0,0,.08);
-   transition: all .25s cubic-bezier(.02,.01,.47,1);
-}
-.card:hover {
-        box-shadow: 0 30px 30px rgba(0,0,0,.15);
-}
-.login-card  {
-  margin-top: 4.5rem;
-  padding-top: 2rem;}
-.card-title {
-  color: #424242
-}
-.card-text {
-  font-size: 18px;
-}
-.btn-signin, .btn-submit {
+
+
+ .btn-submit {
   background-color: #269CFF;
   border-radius: 6px;
 }
-.btn-signin {
-  width: 100%;
 
-}
-/************
-Registration 
-************/
 .container {
   padding-right: 0 !important;
   padding-left: 0 !important;
@@ -101,17 +63,7 @@ Registration
 .reg-form {
   padding-left: 4rem;
 }
-.dataChip {
-  position: absolute;
-  display: none;
-}
-.btn-skill {
-  background-color: #ff4081;
-  padding: 0.9rem;
-}
-.skill-text {
-  font-size: 0.75rem;
-}
+
 /*************
 Add Gilroy Font
 *************/

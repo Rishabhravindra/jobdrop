@@ -2,10 +2,14 @@ extends layout
 
 block content
  .container
-  .h5.h5-responsive.desc Hello. Job Id for #{link} is #{jobID}. Use this record for 
-  p
-   a.action(href='/search') looking up
-   |  job statuses and results. Or if you want,  
+  //- .h5.h5-responsive.desc Hello. Job Id for #{link} is #{jobID}. Use this record for 
+  p Hello. Job Id for 
+   span.info #{link}
+   |  is 
+   span.info #{jobID}
+   | . Use this record for
+   a.action(href='/search')  looking up
+   |  job statuses and results. Or, if you want,  
    a.action(href='/add') add another job
 
 
