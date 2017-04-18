@@ -3,4 +3,8 @@ extends layout
 block content
 	.text-xs-center
 		h1.err-msg= message
+		p
+			a.action(href='/add') Add Job
+			|  or 
+			a.action(href='/search') Search Job
 
