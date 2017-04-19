@@ -117,7 +117,7 @@ The whole process is logged on the console. That is one way to look up the histo
 * [pug](https://pugjs.org/api/getting-started.html) - templating engine
 * [request](https://www.npmjs.com/package/request) - make HTTP calls and get html code
 
-
+dsd
 ## Author
 
 * **Rishabh Ravindra** - [website](http://rishravi.me)
@@ -127,3 +127,24 @@ The whole process is logged on the console. That is one way to look up the histo
 * Stack Overflow
 * Documentation for various packages used
 
+## Follow-up questions
+
+**1) Right now the server that received job requests and the queue that executes requests run in the same process. If I sent a lot of requests for urls with long downloads this could crash both the REST server and job queue processing at once. How would you solve for this?**
+
+
+**2) How would you test your system?**
+
+I would unit test the system since it involves so many functions that do different tasks. Looking up results in a MongoDB collection would be a very different function than assigning a worker the task of fetching data from a url. Hence, the need for unit testing the functions. To accomplish this, I would use the Mocha testing library to automate and run tests, and Chai to verify the test results obtained from Mocha. 
+
+For Eg- I can write a test on Mocha to check that the searchJob() function is returning a JSON object and assert with Chai.
+
+**3) If I submitted a url that was an endpoint for a 10TB file your code would attempt to download it and die. How do you avoid trying to request large files?**
+
+I would have a two-step check to make sure file sizes being downloaded through the http request do not cross beyond the size limit.
+First, I would make a HEAD request to the url submitted at the endpoint and get the file size from the header, ‘content-length’. However, the server may or may not include ‘content-length’, and that is why I would include a second check while downloading the data.
+
+For the second check, I would include a request.on(‘data’... listener and keep a record of the file size being downloaded. With every instance of a data packet being downloaded, a simple if statement can be included to check the file size limit. The request will only continue if the check passes, else the program will call request’s abort() function to stop downloading file from the url.
+
+**4) Why did you check in node_modules?**
+
+When I have to decide whether to check in node_modules or not, I look at the type of project I am working on and what are some of the important features I want to implement. For this project, I wanted to have a clean and lightweight app that handled a job queue and workers. I committed only the files I was working on and let npm handle dependencies. Currently, the binary dependencies of the app weighs in about ~ 28 mb on disk. The project was deployed on Heroku which automates building the project on every commit to the master branch.The development 
