@@ -127,7 +127,7 @@ dsd
 * Stack Overflow
 * Documentation for various packages used
 
-## Follow-up questions
+## [Follow-up questions](#follow-up-questions)
 
 **1) Right now the server that received job requests and the queue that executes requests run in the same process. If I sent a lot of requests for urls with long downloads this could crash both the REST server and job queue processing at once. How would you solve for this?**
 
