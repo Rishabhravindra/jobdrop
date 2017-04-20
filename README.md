@@ -131,6 +131,7 @@ dsd
 
 **1) Right now the server that received job requests and the queue that executes requests run in the same process. If I sent a lot of requests for urls with long downloads this could crash both the REST server and job queue processing at once. How would you solve for this?**
 
+I would implement a Node.js cluster module to run different processes. A master process would be created to assign tasks to its child processes. One process could involve assigning the worker to request data from the user provided URLs, while another process could involve searching up job statuses/results from the mongo collection. This way, the processes would be running separately while sharing resources like the port and database. Added benefits of using clusters involve faster application, and more sclable server for future releases.
 
 **2) How would you test your system?**
 
