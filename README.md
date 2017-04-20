@@ -148,4 +148,4 @@ For the second check, I would include a request.on(‘data’... listener and ke
 
 **4) Why did you check in node_modules?**
 
-When I have to decide whether to check in node_modules or not, I look at the type of project I am working on and what are some of the important features I want to implement. For this project, I wanted to have a clean and lightweight app that handled a job queue and workers. I committed only the files I was working on and let npm handle dependencies. Currently, the binary dependencies of the app weighs in about ~ 28 mb on disk. The project was deployed on Heroku which automates building the project on every commit to the master branch.The development 
+Before I write code, I try to make a software design outline and decide things like frameworks and implementation. For this project, I wanted to have a clean and lightweight app that handled a job queue and workers. I committed the files I was working on and let npm handle dependencies. Currently, the binary dependencies of the app weighs about ~ 28 mb on disk. The project was deployed on Heroku which automates the project build process on every commit to the master branch.
